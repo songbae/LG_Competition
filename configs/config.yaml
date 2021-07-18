@@ -1,0 +1,42 @@
+swin:
+  name: 'Unext'
+  seed: 777
+  backbone: 'Unext'
+  csv_path: './data/train.csv/'
+  path: './data/new_train_img/'
+  label_path: './data/new_label_img/'
+  model_acr: "Unext"
+  num_classes: 3
+  image_size: 384
+  output_dir: './output'
+  lr: 0.0003
+  visual: 1
+  num_workers: 4
+  train:
+    num_epochs: 2000
+    batch_size: 4
+    max_lr: 0.0003
+    min_lr: 0.0000001
+    weight_decay: 0.0000001
+    gamma: 0.6
+
+hrnet:
+  name: 'Hrnet'
+  seed: 777
+  backbone: 'Hrnet'
+  csv_path: './data/train.csv'
+  path: './data/train_input_img/'
+  label_path: './data/train_label_img/'
+  model_acr: "Hrnet"
+  num_classes: 3
+  image_size: 256
+  output_dir: './output'
+  lr: 0.0003
+  visual: 1
+  num_workers: 4
+  train:
+    num_epochs: 200
+    batch_size: 4
+    max_lr: 0.0003
+    min_lr: 0.000001
+    weight_decay: 0.0000001
