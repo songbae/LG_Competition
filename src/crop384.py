@@ -18,8 +18,6 @@ size = 384
 for idx, (train, labels) in tqdm(enumerate(zip(train_lmg_list, train_label_list))):
     img = cv2.imread(train)
     label = cv2.imread(labels)
-    if idx < 120:
-        continue
     h, w, c = img.shape
     for i in range(0, h, stride):
         for j in range(0, w, stride):
@@ -40,10 +38,7 @@ for idx, (train, labels) in tqdm(enumerate(zip(train_lmg_list, train_label_list)
             save_resize_img = cv2.resize(save_resize_img, dsize=(
                 size, size), interpolation=cv2.INTER_LINEAR)
 
-            if save_img.shape != save_label.shape:
-                print(cnt)
-                continue
-            if np.mean(save_img) < 10:
+            if np.mean(save_img) < 8:
                 continue
 
             cv2.imwrite(f'./data/new_train_img2/{str(cnt)}_r.png', save_img)
